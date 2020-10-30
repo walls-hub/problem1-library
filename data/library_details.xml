@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_student_tree1" model="ir.ui.view">
+            <field name="name">book.book.tree</field>
+            <field name="model">book.book</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="book">
+                    <field name="name" />
+                    <field name="author" />
+                    <field name="editor" />
+                    <field name="year_of_edition" />
+                    <field name="isbn" />
+
+                </tree>
+            </field>
+        </record>
+        <record id="view_student_form1" model="ir.ui.view">
+            <field name="name">book.book.form</field>
+            <field name="model">book.book</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="book">
+                    <sheet>
+                        <notebook colspan="4">
+                            <page name="Book_information"
+                                string="Book Information" col="10" colspan="4">
+                                <group col="1" colspan="4" name="Book info">
+                                      <field name="name" />
+                                      <field name="author" />
+                                      <field name="editor" />
+                                      <field name="year_of_edition" />
+                                      <field name="isbn" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_students1">
+            <field name="name">Books</field>
+            <field name="res_model">book.book</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click create to --> Add book
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="school_student1" name="Books" parent="menu_school"
+                  action="action_view_students1"/>
+
+
+
+    </data>
+</odoo>
